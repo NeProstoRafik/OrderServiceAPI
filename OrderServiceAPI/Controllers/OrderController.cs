@@ -24,9 +24,9 @@ namespace OrderServiceAPI.Controllers
 		}
 
 		[HttpPut("{id}/update")]
-		public IActionResult UpdateOrder(Guid id)
+		public IActionResult UpdateOrder(Guid id, OrderViewModelUpdate model)
 		{
-			var res = _orderService.Get(id);
+			var res = _orderService.Update(id, model);
 			return Ok();
 		}
 

@@ -8,7 +8,7 @@ namespace OrderServiceAPI.Domain.Entity
 {
 	public class Product
 	{
-		public Guid Id { get; set; }=new Guid();
+		public Guid Id { get; set; }= Guid.NewGuid() ;
 		public int Count{ get; set; } 
 	}
 }
