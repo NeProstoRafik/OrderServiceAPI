@@ -1,4 +1,39 @@
-- 
+# Тестовое задание
+
+Необходимо разработать сервис заказов. Сервис должен позволять управлять заказами и сохранять свое состояние в базу данных. Необходимо реализовать следующий функционал:
+
+- Создание заказа
+- Изменение / редактирование заказа
+- Удаление заказа
+- Получение заказа по идентификатору
+
+Заказ представляем собой комбинацию шапки заказа и строк заказа. Шапка состоит из следующих полей:
+
+- идентификатор заказа, GUID
+- статуса заказа, пречисление: новый, ожидает оплату, оплачен, передан в доставку, доставлен, завершен
+- дата создания, DateTime
+
+Строка заказа представляет собой идентификатор товара (GUID) и количество (целое не отрицательное число).
+
+Пример в формате json:
+
+```json
+{
+	id: "ddfea950-d878-4bfe-a5d7-e9771e830cbd",
+	status: "New",
+	created: "2023-01-01 23:21.12",
+	lines: [
+		{ id: "ffee5ad4-c7e5-48d3-aee4-b1593a4e1863", qty: 12},
+		{ id: "15c68982-ed2e-4460-a4c3-66804d9aed65", qty: 1},
+	]
+}
+```
+
+При реализации сервиса необходимо использовать следующие технологии:
+
+- asp.net web api ([https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/apis?view=aspnetcore-7.0](https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/apis?view=aspnetcore-7.0))
+- asp.net dependency injection framework ([https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0](https://learn.microsoft.com/en-gb/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-7.0))
+- Entity Framework ([https://learn.microsoft.com/en-gb/aspnet/core/data/entity-framework-6?view=aspnetcore-7.0](https://learn.microsoft.com/en-gb/aspnet/core/data/entity-framework-6?view=aspnetcore-7.0))
 - postgresql и npgsql([https://www.postgresql.org](https://www.postgresql.org/) & [https://www.npgsql.org](https://www.npgsql.org/))
 
 Сервис должен реализовывать следующий контракт:
@@ -89,4 +124,3 @@ GET /orders/ddfea950-d878-4bfe-a5d7-e9771e830cbd
 - схема базы данных описана в миграциях и автоматически разворачивается при старте сервиса
 - написана инструкция по запуску сервиса
 - сервис опубликован на GitHub в публичном репозитории
-
